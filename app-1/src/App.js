@@ -2,17 +2,25 @@ import React, { Component } from 'react'
 import './App.css'
 
 class App extends Component {
-  handleInput(value) {
+  constructor() {
+    super();
+
+    this.state = {
+      message: ""
+    };
+  }
+
+  handleChange(value) {
     this.setState({
-      input: value
+      message: value
     })
   }
 
   render() {
     return (
       <div className="App">
-        <input onChange={(e) => this.handleInput(e)} />
-        <h1>{this.state.input}</h1>
+        <input onChange={(e) => this.handleChange(e.target.value)} type="text" />
+        <p>{this.state.message}</p>
       </div>
     )
   }
